@@ -1,3 +1,4 @@
+import numpy as np
 import os
 import pandas as pd
 
@@ -118,3 +119,38 @@ class ResultsHandler:
         os.remove(self.temp_filename)
         df.to_csv(self.final_filename, index=False)
         print(f'Results saved to {self.final_filename}')
+
+
+def lev_dist(a:str,b:str) -> int:
+    """Get Levenshtein distance between two strings. In other words, get
+    minimum number of single character changes to transform string 'a' into string 'b'
+
+    Args:
+        a (str): String to be transformed 
+        b (str): String that 'a' is going to be transformed into
+
+    Returns:
+        int: Minimum number of changes to transform 'a' into 'b' 
+    """
+    rows = len(a) + 1
+    cols = len(b) + 1
+    arr = np.zeros((rows,cols),dtype=int)
+
+    for i in range(rows):
+        for j in range(cols):
+            arr[i][0] = i
+            arr[0][j] = j
+
+    # Iterating over the elements of the matrix except index column and row
+    for i in range(1,rows):
+        for j in range(1,cols):
+            if a[i-1] == b[j-1]:
+                cost = 0
+            else:
+                cost = 1
+
+            arr[i][j] = min(arr[i-1][j] + 1,     # deletion
+                        arr[i][j-1] + 1,         # insertion
+                        arr[i-1][j-1] + cost)    # replacem
+
+    return int(arr[len(a)][len(b)])
