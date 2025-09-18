@@ -108,7 +108,7 @@ class ResultsHandler:
         """
         try:
             dtype = {'sequence': str, 'smiles': str, 'fitness': float, 'generation': int}
-            df = pd.read_csv(self.temp_filename, dtype=dtype)
+            df = pd.read_csv(self.temp_filename, dtype=dtype) # pyright: ignore[reportArgumentType]
         except pd.errors.EmptyDataError:
             df = pd.DataFrame(columns=['sequence', 'smiles', 'fitness', 'generation'])
         

@@ -16,7 +16,7 @@ class FitnessOperator(ABC):
         name (str): The unique name identifier for the fitness operator. Must be defined in subclasses.
     """
     registry: Dict[str, Type['FitnessOperator']] = {}
-    name: str = None
+    name: str = ""
 
     def __init_subclass__(cls, **kwargs):
         """

@@ -16,7 +16,7 @@ class CrossoverOperator(ABC):
         name (str): Unique identifier for the crossover operator (must be defined in subclasses).
     """
     registry = {}
-    name: str = None  # Subclasses must define a unique name.
+    name: str = '' # Subclasses must define a unique name.
 
     def __init_subclass__(cls, **kwargs):
         """
