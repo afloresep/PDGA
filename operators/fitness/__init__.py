@@ -2,6 +2,7 @@ from .fitness import FitnessOperator
 from .fit_map4c import MAP4C
 from .fit_atompair import Atompair
 from .fit_mxfp import MXFP
+from .fit_mba import MBA
 
 def get_fitness_function(name: str):
     """

@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import pandas as pd
+from typing import Union, List
 
 class ResultsHandler:
     """
@@ -121,13 +122,13 @@ class ResultsHandler:
         print(f'Results saved to {self.final_filename}')
 
 
-def lev_dist(a:str,b:str) -> int:
+def lev_dist(a:Union[str, List],b:Union[str, List]) -> int:
     """Get Levenshtein distance between two strings. In other words, get
     minimum number of single character changes to transform string 'a' into string 'b'
 
     Args:
-        a (str): String to be transformed 
-        b (str): String that 'a' is going to be transformed into
+        a Union[str,List]: String to be transformed 
+        b Union[str,List]: String that 'a' is going to be transformed into
 
     Returns:
         int: Minimum number of changes to transform 'a' into 'b' 
