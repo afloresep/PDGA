@@ -26,8 +26,8 @@ BB0024,NC(CC1=CNC2=C1C=CC=C2)C(=O),Tryptophan
 BB0025,N[C@H](CC1=CNC2=C1C=CC=C2)C(=O),D-Tryptophan
 BB0026,N[C@@H](CC1=CNC2=C1C=CC=C2)C(=O),L-Tryptophan
 BB0027,NC(CO)C(=O),Serine
-BB0028,N[C@@H](CO)C(=O),D-Serine
-BB0029,N[C@H](CO)C(=O),L-Serine
+BB0028,N[C@H](CO)C(=O),D-Serine
+BB0029,N[C@@H](CO)C(=O),L-Serine
 BB0030,NC(C(C)O)C(=O),Threonine
 BB0031,N[C@H]([C@H](O)C)[C@H](=O),D-Threonine
 BB0032,N[C@H]([C@@H](O)C)[C@H](=O),D-Threonine
@@ -120,4 +120,4 @@ BB0118,N(CC1=CC=C(CCCC)C=C1)CC(=O),4-n-Butylbenzylamine
 BB0119,N(CC1=CC=C(C)C(C)=C1)CC(=O),3-4-Dimethylbenzylamine
 BB0120,N(CCO)CC(=O),2-Aminoethanol
 BB0121,N(CC1=CC=C(C(C)(C)C)C=C1)CC(=O),4-tert-Butylbenzylamine
-BB0122,N(C)[C@@H](CC1=CC=CC=C1)C(=O)O,D-N-MethylPhenylalanina
+BB0122,N(C)[C@@H](CC1=CC=CC=C1)C(=O)O,D-N-Methylphenylalanine
