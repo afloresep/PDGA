@@ -57,7 +57,8 @@ def mutate(seq: str, bb_list: List[str], ncap_list: List[str], branch_list: List
     applicable_ops = [op for op in operators if op.applicable(seq)]
     
     # If there is exactly two BB tokens, force BBInsertion.
-    if len(re.findall(r'BB[0-9]{3}', seq)) == 2:
+    
+    if len(re.findall(r'BB\d{3,}(?:-|$)', seq)) == 2:
         applicable_ops = [op for op in operators if isinstance(op, BBInsertion)]
     
     if applicable_ops:
