@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 import re
 from random import choice
 from typing import List
+import logging
 
 # -------------------------
 # Base class for Mutation Operators
@@ -63,7 +64,7 @@ class BBDeletion(MutationOperator):
         Returns:
             bool: True if at least two building blocks are found; False otherwise.
         """
-        return bool(len(re.findall(r'BB[0-9]{3}', seq)) >= 2)
+        return bool(len(re.findall(r'BB\d{3,}(?:-|$)', seq)) >= 2)
 
     def mutate(self, seq: str) -> str:
         """
@@ -75,7 +76,8 @@ class BBDeletion(MutationOperator):
         Returns:
             str: The sequence with one building block removed.
         """
-        matches = list(re.finditer(r'BB[0-9]{3}-', seq))
+        print(seq)
+        matches = list(re.finditer(r'BB\d{3,}(?:-|$)', seq))
         replace = choice(matches)
         return seq[:replace.start()] + seq[replace.end():]
 
@@ -152,7 +154,7 @@ class BBReplacement(MutationOperator):
         Returns:
             bool: True if a building block is found; False otherwise.
         """
-        return bool(re.search(r'BB[0-9]{3}', seq))
+        return bool(re.search(r'BB\d{3,}(?:-|$)', seq))
 
     def mutate(self, seq: str) -> str:
         """
@@ -164,7 +166,7 @@ class BBReplacement(MutationOperator):
         Returns:
             str: The sequence with one building block replaced.
         """
-        matches = list(re.finditer(r'BB[0-9]{3}', seq))
+        matches = list(re.finditer(r'BB\d{3,}(?:-|$)', seq))
         replace = choice(matches)
         return seq[:replace.start()] + choice(self.bb_list) + seq[replace.end():]
 
