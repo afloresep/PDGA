@@ -2,7 +2,7 @@
 This module handles configuration loading, argument parsing, and execution for the PDGA.
 It provides functions to load a configuration file, parse command-line arguments, and run the PDGA.
 """
-
+from utils import setup_logging
 import argparse
 import importlib.util
 import logging
@@ -75,6 +75,8 @@ def parse_args():
                         help='Whether the goal is to maximize the fitness function')
     parser.add_argument("--seed", type=int, default=CONFIG.get("seed", 0),
                         help="Random seed for reproducibility")
+    parser.add_argument("--logging", type=str, default='DEBUG',
+                        help="seed for reproducibility")
     return parser.parse_args()
 
 def main():
@@ -88,6 +90,7 @@ def main():
         None
     """
     args = parse_args()
+    setup_logging(args.logging)    
     
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s - %(levelname)s - %(message)s")
