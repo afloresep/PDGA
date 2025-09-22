@@ -9,10 +9,10 @@ BB0007,NC(CC(C)C)C(=O),Leucine
 BB0008,N[C@H](CC(C)C)C(=O),D-Leucine
 BB0009,N[C@@H](CC(C)C)C(=O),L-Leucine
 BB0010,NC(C(C)CC)C(=O),Isoleucine
-BB0011,N[C@H]([C@H](C)CC)(C=O),D-Isoleucine
-BB0012,N[C@H]([C@@H](C)CC)(C=O),D-Isoleucine
-BB0013,N[C@@H](C[C@@H](C)C)C(=O),L-Isoleucine
-BB0014,N[C@@H](C[C@H](C)C)C(=O),L-Isoleucine
+BB0011,N[C]([C@H](C)CC)(C=O),D-Isoleucine
+BB0012,N[C]([C@@H](C)CC)(C=O),D-Isoleucine
+BB0013,N[C](C[C@@H](C)C)C(=O),L-Isoleucine
+BB0014,N[C](C[C@H](C)C)C(=O),L-Isoleucine
 BB0015,NC(CCSC)C(=O),Methionine
 BB0016,N[C@H](CCSC)C(=O),D-Methionine
 BB0017,N[C@@H](CCSC)C(=O),L-Methionine
@@ -44,8 +44,8 @@ BB0042,N[C@@H](CS)C(=O),L-Cysteine
 BB0043,N[C@H](CS)C(=O),D-Cysteine
 BB0044,NCC(=O),Glycine
 BB0045,N1CCCC1C(=O),Proline
-BB0046,N1CCC[C@@H]1C=O,D-Proline
-BB0047,N1CCC[C@H]1C=O,L-Proline
+BB0046,N1CCC[C@@]1C(=O),D-Proline
+BB0047,N1CCC[C@]1(C=O),L-Proline
 BB0048,NC(CCCNC(N)=N)C(=O),Arginine
 BB0049,N[C@H](CCCNC(N)=N)C(=O),D-Arginine
 BB0050,N[C@@H](CCCNC(N)=N)C(=O),L-Arginine
