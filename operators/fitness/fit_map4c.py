@@ -48,8 +48,11 @@ class MAP4C(FitnessOperator):
         else:
             raise ValueError(f'Invalid query format: {query_format}')
 
-        mol = Chem.MolFromSmiles(_query)
-        fingerprint = mapchiral.encode(mol)
+        try:
+            mol = Chem.MolFromSmiles(_query)
+            fingerprint = mapchiral.encode(mol)
+        except Exception as e:
+            raise ValueError(f"An excepcion ocurred for query: {_query}\n Raised excepction: {e}\n")
         return fingerprint
 
     def process(self, sequence: str):
@@ -65,9 +68,12 @@ class MAP4C(FitnessOperator):
         Returns:
             The molecular fingerprint of the processed sequence.
         """
-        smiles = bbmanager.seq_to_smiles(sequence)
-        mol = Chem.MolFromSmiles(smiles)
-        fingerprint = mapchiral.encode(mol)
+        try:
+            smiles = bbmanager.seq_to_smiles(sequence)
+            mol = Chem.MolFromSmiles(smiles)
+            fingerprint = mapchiral.encode(mol)
+        except Exception as e:
+            raise ValueError(f"An excepcion ocurred for sequence: {sequence}\n Raised excepction: {e}\n")
         return fingerprint
 
     def fitness(self, individual, query):
@@ -84,4 +90,4 @@ class MAP4C(FitnessOperator):
         Returns:
             float: The Jaccard similarity score between the individual's fingerprint and the query fingerprint.
         """
-        return 1 - mapchiral.jaccard_similarity(individual, query)
+        return mapchiral.jaccard_similarity(individual, query)
