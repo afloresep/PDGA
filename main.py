@@ -3,6 +3,7 @@ This module handles configuration loading, argument parsing, and execution for t
 It provides functions to load a configuration file, parse command-line arguments, and run the PDGA.
 """
 from utils import setup_logging
+from typing import Dict
 import argparse
 import importlib.util
 import logging
@@ -75,6 +76,8 @@ def parse_args():
                         help='Whether the goal is to maximize the fitness function')
     parser.add_argument("--seed", type=int, default=CONFIG.get("seed", 0),
                         help="Random seed for reproducibility")
+    parser.add_argument("--mba_params", type=str, default=CONFIG.get("fitness_params", {}),
+                        help="Random seed for reproducibility")
     parser.add_argument("--logging", type=str, default='DEBUG',
                         help="seed for reproducibility")
     return parser.parse_args()
@@ -108,6 +111,7 @@ def main():
         n_iterations=args.n_iterations,
         run_id=args.run_id,
         maximize=args.maximize,
+        fitness_params=args.mba_params,
         seed=args.seed,
     )
     

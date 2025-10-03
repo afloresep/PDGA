@@ -17,6 +17,8 @@ from operators.mutation import mutate
 from utils import ResultsHandler
 
 from tqdm import tqdm
+import logging
+logger = logging.getLogger(__name__)
 
 class PDGA:
     """
@@ -57,7 +59,8 @@ class PDGA:
                  n_iterations: int = 1000,
                  run_id: str = 'run',
                  maximize: bool = False,
-                 seed: int = 42
+                 seed: int = 42, 
+                 fitness_params=None
                  ):
         """
         Initialize the PDGA algorithm.
