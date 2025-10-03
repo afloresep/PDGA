@@ -1,6 +1,9 @@
 from random import choice, randint
 import pandas as pd
 
+import logging
+logger = logging.getLogger(__name__)
+
 class BuildingBlockManager:
     """
     Manages building block data for the PDGA algorithm.
@@ -17,7 +20,7 @@ class BuildingBlockManager:
     """
 
     def __init__(self,
-                 monomers_csv: str = 'bblocks/bb_monomers.csv',
+                 monomers_csv: str = 'bblocks/bb_chiral_monomers.csv',
                  ncaps_csv: str = 'bblocks/bb_ncaps.csv',
                  branches_csv: str = 'bblocks/bb_branches.csv',
                  additional_csv: str = 'bblocks/bb_additional.csv'):
