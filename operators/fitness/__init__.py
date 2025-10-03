@@ -4,7 +4,7 @@ from .fit_atompair import Atompair
 from .fit_mxfp import MXFP
 from .fit_mba import MBA
 
-def get_fitness_function(name: str):
+def get_fitness_function(name: str, **fitness_params):
     """
     Retrieve and instantiate the fitness function based on the provided name.
 
